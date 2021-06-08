@@ -39,7 +39,7 @@ Examples:
 Instruments files (response matrices and background files):
 
     Athena/WFI: https://www.mpe.mpg.de/ATHENA-WFI/response_matrices.html
-    Athena/X-IFU: http://x-ifu.irap.omp.eu/resources-for-users-and-x-ifu-consortium-members
+    Athena/X-IFU: http://x-ifu.irap.omp.eu/resources/for-the-community
 
 References for XSPEC
 
