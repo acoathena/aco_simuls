@@ -57,7 +57,6 @@ should be adopted depending on the desired sensitivity.
     Time_s, Flux_cgs, Flux_confusion_cgs, FluxOptimumExtraction_cgs & RadiusOptimumExtraction_arcsec  
     6. Plotting limiting sensitivity vs exposure time  
 
-
 **Ready-to-use Examples:**  
 
     - Athena/WFI point source, FoV-averaged (0.5-2 keV):
@@ -102,7 +101,8 @@ should be adopted depending on the desired sensitivity.
 ---
 ---
 
-**Instituto de Física de Cantabria (CSIC-UC)**  
+Instituto de Física de Cantabria (CSIC-UC)
+==========================================
 
 Funded by Agencia Estatal de Investigación, Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765  
 Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.  
