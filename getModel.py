@@ -73,9 +73,9 @@ def getModelCR(AllModels,AllData,smodel,pars,rmffile,arffile,intervals,sname='mo
 
     spec=AllData(1)
     countrates=[]
-    for i in range(len(intervals)):
+    for i, interval in enumerate(intervals):
         spec.notice("all")
-        srange="0.0-{} {}-**".format(intervals[i][0],intervals[i][1])
+        srange="0.0-{} {}-**".format(interval[0],interval[1])
         spec.ignore(srange)
         countrates.append(spec.rate[3])
 
@@ -120,8 +120,8 @@ def getModelLum(AllModels,smodel,pars,intervals,z,sname='mod1234'):
     AllModels.setEnergies("0.01 100 10000")
     luminosities=[]
 
-    for i in range(len(intervals)):
-        AllModels.calcLumin('{0:f} {1:f} {2:f}'.format(intervals[i][0],intervals[i][1],z))
+    for i, interval in enumerate(intervals):
+        AllModels.calcLumin('{0:f} {1:f} {2:f}'.format(interval[0],interval[1],z))
         lum=AllModels(1,sname).lumin[0]*1e44
         luminosities.append(lum)
 
@@ -164,8 +164,8 @@ def getModelFlux(AllModels,smodel,pars,intervals,sname='mod1234'):
     AllModels.setEnergies("0.01 100 10000")
 
     fluxes=[]
-    for i in range(len(intervals)):
-        AllModels.calcFlux('{0:f} {1:f}'.format(intervals[i][0],intervals[i][1]))
+    for i, interval in enumerate(intervals):
+        AllModels.calcFlux('{0:f} {1:f}'.format(interval[0],interval[1]))
         flux=AllModels(1,sname).flux[0]
         fluxes.append(flux)
 
