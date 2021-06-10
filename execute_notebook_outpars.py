@@ -21,8 +21,8 @@ if __name__ == "__main__":
     parser.add_argument("--fHEW",type=float, required=False,default=1.0,
                         help="Extraction radius for the source in units of fraction of the HEW"
     )
-    parser.add_argument("--bgdArea",type=float, required=False,default=3600.0,
-                        help="Backtround extraction area (arcsec2, default 3600)"
+    parser.add_argument("--bgdArea",type=float, required=False,default=78.54,
+                        help="Backtround extraction area (arcsec2, default 78.54)"
     )
     parser.add_argument("--prob",type=float, required=False,default=1-1e6,
                         help="Detection probability for limits (default {})".format(1-1e-6)
@@ -52,8 +52,8 @@ if __name__ == "__main__":
     parser.add_argument("--nt",type=int, required=False,default=100,
                         help="Number of exposure time values to explore"
     )
-    parser.add_argument("--SXlim",type=float, required=False,default=1.2071032e-16,
-                        help="Confusion flux limit (cgs, default 1.2071032e-16)"
+    parser.add_argument("--SXlim",type=float, required=False,default=1.21e-16,
+                        help="Confusion flux limit (cgs, default 1.21e-16)"
     )
     parser.add_argument("--outfile",type=str, required=False,default='outfile.txt',
                         help='Filename with the output exposure time and flux limits (default: outfile.txt)'
