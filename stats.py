@@ -119,7 +119,8 @@ def get_kdet(B,prob=None,flag=1):
 
     """
     # default prob value 5sigma
-    if(prob==None):prob=erf(5.0/np.sqrt(2))
+    if(prob is None):
+        prob=erf(5.0/np.sqrt(2))
 
     if (flag==0):
         # using gammainc
@@ -158,7 +159,8 @@ def get_sdet(B,prob=None,t=1.0,EEF=1.0,flag=1):
 
     """
 
-    if(prob==None):prob=erf(5.0/np.sqrt(2))
+    if(prob is None):
+        prob=erf(5.0/np.sqrt(2))
 
     tau=t*EEF
     kdet=get_kdet(B,prob,flag=flag)
@@ -195,7 +197,8 @@ def get_Pdet(B,s,prob=None,t=1.0,EEF=1.0,flag=1):
 
     """
 
-    if(prob==None):prob=erf(5.0/np.sqrt(2))
+    if(prob is None):
+        prob=erf(5.0/np.sqrt(2))
 
     tau=t*EEF
     kdet=get_kdet(B,prob,flag)
@@ -204,4 +207,3 @@ def get_Pdet(B,s,prob=None,t=1.0,EEF=1.0,flag=1):
     else:
         Pdet=poisson.sf(B+s*tau,kdet)
     return Pdet
-

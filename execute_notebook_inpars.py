@@ -3,9 +3,9 @@ import papermill as pm
 #
 # Jupyter notebook Parameters definition
 #
-rmffile = "None"  # Filename with full path of the response file for the source spectrum
-arffile = "None"  # Filename with full path of the auxiliary matrix file for the source spectrum
-bgdfile = "None"  # Filename with full path of background spectrum
+rmffile = None    # Filename with full path of the response file for the source spectrum (REQUIRED)
+arffile = None    # Filename with full path of the auxiliary matrix file for the source spectrum (REQUIRED)
+bgdfile = None    # Filename with full path of background spectrum (REQUIRED)
 HEW = 5.7         # HEW of the PSF in arcsec
 fHEW = 1.0        # Extraction radius for the source in units of fraction of the HEW
 bgdArea = 78.54   # Background extraction area (arcsec2)
@@ -55,5 +55,4 @@ pm.execute_notebook(
 print("=====================")
 print("Processing terminated")
 print("=====================")
-
 

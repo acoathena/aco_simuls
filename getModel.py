@@ -21,7 +21,7 @@ For a copy of the GNU General Public License see
 <http://www.gnu.org/licenses/>.
 """
 
-from xspec import *
+from xspec import Model, FakeitSettings
 
 def getModelCR(AllModels,AllData,smodel,pars,rmffile,arffile,intervals,sname='mod1234',Texp=1e9):
     """
