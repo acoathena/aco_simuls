@@ -58,33 +58,32 @@ should be adopted depending on the desired sensitivity.
     6. Plotting limiting sensitivity vs exposure time  
 
 
-
 **Ready-to-use Examples:**  
 
-    - Athena/WFI point source, FoV-averaged:
+    - Athena/WFI point source, FoV-averaged (0.5-2 keV):
 
-        > python execute_notebook_outpars.py --rmffile athena_wfi_rib2.3_B4C_20210218_wo_filter_FovAvg.rsp 
-        --arffile " " --bgdfile athena_wfi_rib2.3_B4C_20190502_bkgd_sum_psf_wo_filter_FovAvg.pha --HEW 5.7 
-        --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020         
-        --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17                                 
-        --outfile FluxvsTexp_bgd_WFI_05_2keV.topcat --pngfile FluxvsTexp_bgd_WFI_05_2keV.png
+    > python execute_notebook_outpars.py --rmffile athena_wfi_rib2.3_B4C_20210218_wo_filter_FovAvg.rsp
+    --arffile " " --bgdfile athena_wfi_rib2.3_B4C_20210329_bkgd_sum_psf_wo_filter_FovAvg.pha --HEW 5.7
+    --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020
+    --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17
+    --outfile FluxvsTexp_bgd_WFI_05_2keV.topcat --pngfile FluxvsTexp_bgd_WFI_05_2keV.png
 
-    - Athena/WFI point source on-axis:
+    - Athena/WFI point source on-axis (2-10 keV):
 
-        > python execute_notebook_outpars.py --rmffile athena_wfi_rib2.3_B4C_20210218_wo_filter_OnAxis.rsp
-        --arffile " " --bgdfile athena_wfi_rib2.3_B4C_20190502_bkgd_sum_psf_wo_filter_OnAxis.pha --HEW 5.7 
-        --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 2.0 --Emax 10.0 --NHGal 0.018 --NH 0.020 
-        --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 1.21e-16 
-        --outfile FluxvsTexp_bgd_WFI_2_10keV.topcat --pngfile FluxvsTexp_bgd_WFI_2_10keV.png 
+    > python execute_notebook_outpars.py --rmffile athena_wfi_rib2.3_B4C_20210218_wo_filter_OnAxis.rsp
+    --arffile " " --bgdfile athena_wfi_rib2.3_B4C_20210329_bkgd_sum_psf_wo_filter_OnAxis.pha --HEW 5.7
+    --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 2.0 --Emax 10.0 --NHGal 0.018 --NH 0.020
+    --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 1.21e-16
+    --outfile FluxvsTexp_bgd_WFI_2_10keV.topcat --pngfile FluxvsTexp_bgd_WFI_2_10keV.png
 
-    - Athena/X-IFU point source:
+    - Athena/X-IFU point source (0.5-2 keV):
 
-        > python execute_notebook_outpars.py --rmffile XIFU_CC_BASELINECONF_2018_10_10.rmf
-        --arffile XIFU_CC_BASELINECONF_2018_10_10.arf 
-        --bgdfile Total_pointsources_XIFU_CC_BASELINECONF_2018_10_10.pha --HEW 5.7
-        --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020 
-        --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17 
-        --outfile FluxvsTexp_bgd_XIFU_05_2keV.topcat --pngfile FluxvsTexp_bgd_XIFU_05_2keV.png
+    > python execute_notebook_outpars.py --rmffile XIFU_CC_BASELINECONF_2018_10_10.rmf
+    --arffile XIFU_CC_BASELINECONF_2018_10_10.arf
+    --bgdfile Total_pointsources_XIFU_CC_BASELINECONF_2018_10_10.pha --HEW 5.7
+    --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020
+    --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17
+    --outfile FluxvsTexp_bgd_XIFU_05_2keV.topcat --pngfile FluxvsTexp_bgd_XIFU_05_2keV.png
        
 ---
 
