@@ -2,7 +2,7 @@
 
 
 
-[![DOI](https://zenodo.org/badge/352657169.svg)](https://zenodo.org/badge/latestdoi/352657169) [![CodeFactor](https://www.codefactor.io/repository/github/acoathena/aco_simuls/badge/main)](https://www.codefactor.io/repository/github/acoathena/aco_simuls/overview/main) 
+[![DOI](https://zenodo.org/badge/352657169.svg)](https://zenodo.org/badge/latestdoi/352657169) [![CodeFactor](https://www.codefactor.io/repository/github/acoathena/aco_simuls/badge/main)](https://www.codefactor.io/repository/github/acoathena/aco_simuls/overview/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/062a6019b14646a682320d2187b281f6)](https://www.codacy.com/gh/acoathena/aco_simuls/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=acoathena/aco_simuls&amp;utm_campaign=Badge_Grade)
 
 Simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/) to determine the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time.
 
