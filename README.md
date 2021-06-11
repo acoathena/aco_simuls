@@ -1,5 +1,9 @@
 # aco_simuls
 
+
+
+[![DOI](https://zenodo.org/badge/352657169.svg)](https://zenodo.org/badge/latestdoi/352657169) [![CodeFactor](https://www.codefactor.io/repository/github/acoathena/aco_simuls/badge/main)](https://www.codefactor.io/repository/github/acoathena/aco_simuls/overview/main) 
+
 Simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/) to determine the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time.
 
 The programm can be run either executing (cell-by-cell) the jupyter-notebook ``Athena_Xray_flux_vs_expTime.ipynb`` or running the notebook from the command line. 
