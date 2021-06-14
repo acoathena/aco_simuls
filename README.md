@@ -87,13 +87,15 @@ should be adopted depending on the desired sensitivity.
     --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020
     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17
     --outfile FluxvsTexp_bgd_XIFU_05_2keV.topcat --pngfile FluxvsTexp_bgd_XIFU_05_2keV.png
-       
+
+The output (PNG) figures of these examples can be found in the ``test_examples`` folder.
+
 ---
 
 **Instruments files (response matrices and background files):**
 
-    Athena/WFI: https://www.mpe.mpg.de/ATHENA-WFI/response_matrices.html
-    Athena/X-IFU: http://x-ifu.irap.omp.eu/resources/for-the-community
+    [Athena/WFI matrices and background files](https://www.mpe.mpg.de/ATHENA-WFI/response_matrices.html)
+    [Athena/X-IFU matrices and background files](http://x-ifu.irap.omp.eu/resources/for-the-community)
 
 **References for XSPEC**
 
