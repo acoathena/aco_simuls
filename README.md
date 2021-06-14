@@ -6,7 +6,7 @@
 
 Simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/) to determine the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time.
 
-The programm can be run either executing (cell-by-cell) the jupyter-notebook ``Athena_Xray_flux_vs_expTime.ipynb`` or running the notebook from the command line. 
+The program can be run either executing (cell-by-cell) the jupyter-notebook ``Athena_Xray_flux_vs_expTime.ipynb`` or running the notebook from the command line. 
 
 Before running the program, users need to install locally [HEASOFT](https://heasarc.gsfc.nasa.gov/docs/software/heasoft/) with [PyXspec](https://heasarc.gsfc.nasa.gov/docs/xanadu/xspec/python/html/).
 
