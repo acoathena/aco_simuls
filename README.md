@@ -1,17 +1,17 @@
-# aco_simuls
-
-
-
 [![DOI](https://zenodo.org/badge/352657169.svg)](https://zenodo.org/badge/latestdoi/352657169) [![CodeFactor](https://www.codefactor.io/repository/github/acoathena/aco_simuls/badge/main)](https://www.codefactor.io/repository/github/acoathena/aco_simuls/overview/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/062a6019b14646a682320d2187b281f6)](https://www.codacy.com/gh/acoathena/aco_simuls/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=acoathena/aco_simuls&amp;utm_campaign=Badge_Grade)
 
-This repository contains the following simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/)
+This repository contains the following simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/):
 
-## Athena_Xray_flux_vs_expTime
+# Athena_Xray_flux_vs_expTime
 
 Determine the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time.
 
 The simulations can be done either running the notebook from the command line or executing (cell-by-cell) the jupyter-notebook ``Athena_Xray_flux_vs_expTime.ipynb``. 
+<<<<<<< HEAD
 For this case, the first cell also contains the option to make plots interactive by using ``matplotlib widgets`` in a jupyter-lab (provided [``ipympl``](https://github.com/matplotlib/ipympl) is installed. Simply uncomment the lines:
+=======
+For this case, the first cell also contains the option to make plots interactive by using ``matplotlib widgets`` in a jupyter-lab (provided [``ipympl``](https://github.com/matplotlib/ipympl) is installed). Simply uncomment the line:
+>>>>>>> 8de1e0a9a5b9991b4375db834a71505a9c5998dc
 
 ```import ipywidgets as widgets```   
 ```%matplotlib widget```
