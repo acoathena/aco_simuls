@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/78cf04df0a674935890aa9dd39c7fca4)](https://app.codacy.com/gh/acoathena/aco_simuls?utm_source=github.com&utm_medium=referral&utm_content=acoathena/aco_simuls&utm_campaign=Badge_Grade_Settings)
 [![DOI](https://zenodo.org/badge/352657169.svg)](https://zenodo.org/badge/latestdoi/352657169) [![CodeFactor](https://www.codefactor.io/repository/github/acoathena/aco_simuls/badge/main)](https://www.codefactor.io/repository/github/acoathena/aco_simuls/overview/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/062a6019b14646a682320d2187b281f6)](https://www.codacy.com/gh/acoathena/aco_simuls/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=acoathena/aco_simuls&amp;utm_campaign=Badge_Grade)
 
 This repository contains the following simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/):
