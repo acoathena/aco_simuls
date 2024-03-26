@@ -113,7 +113,6 @@ The output (PNG) figures of these examples can be found in the ``test_examples``
 
 ### Instituto de Física de Cantabria (CSIC-UC)
 
-Funded by Agencia Estatal de Investigación, Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765  
-Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.  
+Grant PID2021-122955OB-C41 funded by MCIN/AEI/10.13039/501100011033 and by “ERDF A way of making Europe”
 
 ![logos](./logos/logos_small.png)
