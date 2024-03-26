@@ -6,8 +6,10 @@ Created on Fri Mar 19 18:28:40 2021
 @authors: F.J. Carrera, S. Martinez-Núñez
 Athena Community Office
 Instituto de Física de Cantabria (CSIC-UC)
-Funded by Agencia Estatal de Investigación, Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765
-Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.
+Funded by Agencia Estatal de Investigación, 
+           Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765
+Funded by the Spanish Ministry MCIU under project 
+           RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.
 
 This is free software: you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
@@ -23,16 +25,19 @@ For a copy of the GNU General Public License see
 
 from xspec import Model, FakeitSettings
 
-def getModelCR(AllModels,AllData,smodel,pars,rmffile,arffile,intervals,sname='mod1234',Texp=1e9):
+def getModelCR(AllModels,AllData,smodel,pars,rmffile,arffile,intervals,
+               sname='mod1234',Texp=1e9):
     """
-           Count rate for the given spectral model in the given energy interval(s)
+    Count rate for the given spectral model in the given energy interval(s)
 
     Parameters
     ----------
     AllModels : pyXspec container
-        PyXspec automatically creates a single object of xspec.ModelManager, named AllModels
+        PyXspec automatically creates a single object of xspec.ModelManager, 
+        named AllModels
     AllData : pyXspec parameter
-        Spectral data container. PyXspec automatically creates a single object of class xspec.DataManager, named AllData
+        Spectral data container. PyXspec automatically creates a single 
+        object of class xspec.DataManager, named AllData
     smodel : pyXspec container
         The model expression string, using full component names
     pars : LIST
@@ -40,7 +45,8 @@ def getModelCR(AllModels,AllData,smodel,pars,rmffile,arffile,intervals,sname='mo
     rmffile : STRING
         Filename with full path of the response file for the source spectrum
     arffile : STRING
-        Filename with full path of the auxiliary response file for the source spectrum
+        Filename with full path of the auxiliary response file for 
+        the source spectrum
     intervals : LIST of lists
         Energy interval as: [Emin, Emax]
         Emin (float): Lower bound of the energy interval (keV)
@@ -55,7 +61,8 @@ def getModelCR(AllModels,AllData,smodel,pars,rmffile,arffile,intervals,sname='mo
     Returns
     -------
     countrates : FLOAT
-        Count rate for the given spectral model in the given energy interval(s) in counts per second
+        Count rate for the given spectral model in the given energy 
+        interval(s) in counts per second
 
     """
 
@@ -93,7 +100,8 @@ def getModelLum(AllModels,smodel,pars,intervals,z,sname='mod1234'):
     Parameters
     ----------
     AllModels : pyXspec container
-        PyXspec automatically creates a single object of xspec.ModelManager, named AllModels
+        PyXspec automatically creates a single object of 
+        xspec.ModelManager, named AllModels
     smodel : pyXspec container
         The model expression string, using full component names
     pars : LIST
@@ -138,7 +146,8 @@ def getModelFlux(AllModels,smodel,pars,intervals,sname='mod1234'):
     Parameters
     ----------
     AllModels : pyXspec container
-        PyXspec automatically creates a single object of xspec.ModelManager, named AllModels
+        PyXspec automatically creates a single object of xspec.ModelManager, 
+        named AllModels
     smodel : pyXspec container
         The model expression string, using full component names
     pars : LIST
