@@ -1,5 +1,8 @@
 [![DOI](https://zenodo.org/badge/352657169.svg)](https://zenodo.org/badge/latestdoi/352657169) [![CodeFactor](https://www.codefactor.io/repository/github/acoathena/aco_simuls/badge/main)](https://www.codefactor.io/repository/github/acoathena/aco_simuls/overview/main) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/062a6019b14646a682320d2187b281f6)](https://www.codacy.com/gh/acoathena/aco_simuls/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=acoathena/aco_simuls&amp;utm_campaign=Badge_Grade)
 
+#### Achievements
+[![SQAaaS badge](https://github.com/EOSC-synergy/SQAaaS/raw/master/badges/badges_150x116/badge_software_bronze.png)](https://api.eu.badgr.io/public/badges/UOmgyH_TSpSPXiro4aNBoQ "SQAaaS bronze badge achieved") 
+
 This repository contains the following simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/):
 
 # Athena_Xray_flux_vs_expTime
