@@ -5,7 +5,7 @@
 
 This repository contains the following simulation tools developed by the [Athena Community Office](https://www.the-athena-x-ray-observatory.eu/):
 
-# Athena_Xray_flux_vs_expTime
+# NewAthena Xray flux vs exposure Time
 
 Determine the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time.
 
