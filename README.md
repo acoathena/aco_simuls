@@ -69,6 +69,7 @@ should be adopted depending on the desired sensitivity.
     6. Plotting limiting sensitivity vs exposure time  
 
 **Ready-to-use Examples:**  
+*** These examples correspond to the Athena configuration 2021 - We are working on updating them to the current NewAthena configuration ***
 
     - Athena/WFI point source, FoV-averaged (0.5-2 keV):
 
