@@ -8,9 +8,14 @@
 # **Athena Community Office**  
 # **Instituto de Física de Cantabria (CSIC-UC)**  
 # Funded by Agencia Estatal de Investigación, Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765  
-# Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.  
+# Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.    
+# Funded by the Spanish Ministry MCIU under project PID2021-122955OB-C41 funded by MICIU/AEI/
+# 10.13039/501100011033 and by ERDF/EU.     
+# Funded by the Spanish Ministry MCIU under project PID2024-155779OB-C31 funded by MICIU/AEI/
+# 10.13039/501100011033 and by ERDF/EU.
 # 
-# ![logos](logos/logos_small.png)
+# 
+# ![logos](logos/logo_grant.jpg)
 # 
 # >__LICENSE__: This is free software: you can redistribute it and/or modify it under the terms of the  
 # >GNU General Public License as published by the Free Software Foundation, either version  
@@ -25,20 +30,20 @@
 # * __rmffile__ (str): Filename with full path of the response file for the source spectrum  
 # * __arffile__ (str): Filename with full path of the auxiliary matrix file for the source spectrum  
 # * __bgdfile__ (str): Filename with full path of sum background spectrum that it includes all components  
-# * __HEW__ (float): HEW of the PSF in arcsec (default 5.7, WFI Field of View average for on-axis HEW=5 arcsec, for X-IFU or WFI on axis use 5 arcsec)  
+# * __HEW__ (float): HEW of the PSF in arcsec (default 9.0)
 # * __fHEW__ (float): Extraction radius for the source in units of fraction of the HEW (default=1.0)   
-# * __bgdArea__ (float): Backtround extraction area (arcsec2, default 78.54)  
-# * __prob__ (float): Detection significance for limits (default=1-1e6)  
+# * __bgdArea__ (float): Backtround extraction area (arcsec2, default 254.5)  
+# * __prob__ (float): Detection significance for limits (default=1-10⁻⁶)  
 # * __Emin__ (float): Lower bound of the energy interval (keV, default 2.0)  
 # * __Emax__ (float): Upper bound of the energy interval (keV, default 10.0)  
 # * __NHGal__ (float): Foreground Galactic column density (1e22 cm-2, default 0.018)  
-# * __NH__ (float): Column density (1e22cm-2, default 0.020)  
+# * __NH__ (float): Column density (10²²cm⁻², default 0.020)  
 # * __Gamma__ (float): Power law photon index (default 2.0)  
 # * __z__ (float): Redshift (default 0)  
-# * __tmin__ (float): Minimum value of the exposure time (s; default=1e2)  
-# * __tmax__ (float): Maximum value of the exposure time (s; default=1e8)  
+# * __tmin__ (float): Minimum value of the exposure time (s; default=100)  
+# * __tmax__ (float): Maximum value of the exposure time (s; default=10⁸)  
 # * __nt__ (int): Number of exposure time values to explore (default=100)  
-# * __SXlim__ (float): Confusion flux hard limit (cgs, default 2.e-17 appropriate for 0.5-2 keV, for 2-10 keV use instead 1.21e-16 -James Aird, private communication-). This limit is a conservative assumption for the limit achieved over the entire field-of-view in the 0.5-2keV band. Different limits should be adopted depending on the desired sensitivity. 
+# * __SXlim__ (float): Confusion flux hard limit (cgs, default 5.1e-17 appropriate for 0.5-2 keV -James Aird, private communication-). Different limits should be adopted depending on the desired sensitivity. 
 # * __outfile__ (str): Filename with the output exposure time and flux limits (default 'outfile.txt')  
 # * __pngfile__ (str): Filename with a plot with the above values (default 'pngfile.png')  
 # 
@@ -60,36 +65,26 @@
 # You can run the notebook interactively (cell by cell using Jupyter Lab/Notebook, Visual Studio Code or your preferred IDE).   
 # To run the notebook end-to-end from the command line, use the script <code>execute_notebook.py</code>:
 # 
-#    <code> > python execute_notebook_outpars.py --rmffile my.rmf --arffile my.arf --bgdfile my.bgdfile ...... </code>  
+#    <code> > python execute_notebook.py --rmffile my.rmf --arffile my.arf --bgdfile my.bgdfile ...... </code>  
 #    
 # 
 # ### Examples:
 # 
 #    1. Athena/WFI point source, FoV-averaged (0.5-2 keV): 
 #     
-#     > python execute_notebook_outpars.py --rmffile athena_wfi_rib2.3_B4C_20210218_wo_filter_FovAvg.rsp  \
-#     --arffile " " --bgdfile athena_wfi_rib2.3_B4C_20210329_bkgd_sum_psf_wo_filter_FovAvg.pha --HEW 5.7  \  
-#     --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020 \
-#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17 \  
+#     > python3 execute_notebook.py --rmffile NewAthena_WFI_13rows_LDA_wo_filter_FoVAvg_20260213.rsp  \
+#     --arffile " " --bgdfile NewAthena_WFI_13rows_LDA_20260410_bkgd_photon_wo_filter_FoVAvg.pha --HEW 9.0  \  
+#     --fHEW 0.67 --bgdArea 254.5 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020 \
+#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 5.1e-17 \  
 #     --outfile FluxvsTexp_bgd_WFI_05_2keV.topcat --pngfile FluxvsTexp_bgd_WFI_05_2keV.png                
+#      
+#    2. Athena/X-IFU point source (0.5-2 keV):
 #     
-#   
-#    2. Athena/WFI point source on-axis (2-10 keV):
-#     
-#     > python execute_notebook_outpars.py --rmffile athena_wfi_rib2.3_B4C_20210218_wo_filter_OnAxis.rsp  \
-#     --arffile " " --bgdfile athena_wfi_rib2.3_B4C_20210329_bkgd_sum_psf_wo_filter_OnAxis.pha --HEW 5.7  \ 
-#     --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 2.0 --Emax 10.0 --NHGal 0.018 --NH 0.020 \
-#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 1.21e-16 \
-#     --outfile FluxvsTexp_bgd_WFI_2_10keV.topcat --pngfile FluxvsTexp_bgd_WFI_2_10keV.png
-#     
-#     
-#    3. Athena/X-IFU point source (0.5-2 keV):
-#     
-#     > python execute_notebook_outpars.py --rmffile XIFU_CC_BASELINECONF_2018_10_10.rmf  \
-#     --arffile XIFU_CC_BASELINECONF_2018_10_10.arf  \
-#     --bgdfile Total_pointsources_XIFU_CC_BASELINECONF_2018_10_10.pha --HEW 5.7 \
+#     > python3 execute_notebook.py --rmffile new_athena_xifu_rb_4eV_gaussian.rmf  \
+#     --arffile new_athena_xifu_rb_optical_filter.arf \
+#     --bgdfile new_athena_xifu_rb_nxb_1amin2.pha --HEW 9.0 \
 #     --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020  \
-#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 2.0e-17 \
+#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 5.1e-17 \
 #     --outfile FluxvsTexp_bgd_XIFU_05_2keV.topcat --pngfile FluxvsTexp_bgd_XIFU_05_2keV.png \
 #     
 #     
@@ -117,6 +112,7 @@
 import sys
 import argparse
 import datetime
+from os import path
 import numpy as np
 from scipy.optimize import root,minimize_scalar
 import matplotlib.pyplot as plt
@@ -142,31 +138,33 @@ print('\n\n Starting Athena_Xray_Flux_vs_expTime at {}\n\n'.format(strstart))
 # 
 # - If running as a notebook, update parameters in the next cell
 # 
-# - If running on the command line using execute_notebook_outpars.py, parameters will be set on the command line call
+# - If running on the command line using execute_notebook.py, parameters will be set on the command line call
 
 # %% [markdown]
 # ## Default parameters
 
 # %%
-rmffile = None  # Filename with full path of the response file for the source spectrum
-arffile = None  # Filename with full path of the auxiliary matrix file for the source spectrum
-bgdfile = None  # Filename with full path of background spectrum
-HEW = 5.7        # HEW of the PSF in arcsec
-fHEW = 0.67      # Extraction radius for the source in units of fraction of the HEW
-bgdArea = 78.54  # Background extraction area (arcsec2)
-prob = 0.999999  # Detection probability for limits (default=1-1e6, [0,1])
-Emin = 2.0       # Lower bound of the energy interval (keV)
-Emax = 10.0      # Upper bound of the energy interval (keV)
-NHGal = 0.018    # Foreground Galactic column density (1e22 cm-2)
-NH = 0.020       # Column density (1e22cm-2)
-Gamma = 2.0      # Power law photon index 
-z = 0.           # Redshift 
-tmin = 1.e2      # Minimum value of the exposure time (s)
-tmax = 1.e8      # Maximum value of the exposure time (s)
-nt = 100         # Number of exposure time values to explore
-SXlim = 1.21e-16 # Confusion flux limit (cgs)
-outfile = 'outfile.txt' # Filename with the output exposure time and flux limits
-pngfile = 'pngfile.png' # Filename with a plot with the above values 
+DEFAULT_PARAMETERS = dict(
+rmffile = "NewAthena_WFI_13rows_LDA_wo_filter_FoVAvg_20260213.rsp",
+arffile = "",
+bgdfile = "NewAthena_WFI_13rows_LDA_20260410_bkgd_photon_wo_filter_FoVAvg.pha",
+HEW = 9.0, 
+fHEW = 1.0, 
+bgdArea = 254.5, 
+prob = 0.999999,
+Emin = 2.0, 
+Emax = 10.0, 
+NHGal = 0.018, 
+NH = 0.020, 
+Gamma = 2.0, 
+z = 0., 
+tmin = 1.e2, 
+tmax = 1.e8, 
+nt = 100,
+SXlim = 5.1e-17,
+outfile = 'outfile.txt',
+pngfile = 'pngfile.png'
+)
 
 # %%
 # insert routine to check whether running as a notebook or a script
@@ -180,7 +178,7 @@ def is_notebook():
     except (NameError, ImportError):
         return False
 
-def get_parameters():
+def get_parameters(defaults):
     """
     Get parameters for simulation.
     If running in a Jupyter Notebook, use default parameters.
@@ -189,53 +187,69 @@ def get_parameters():
     if is_notebook():
         # Default parameters for interactive use
         print("Running in notebook mode for simulation")
-        return {
-            "rmffile": rmffile,
-            "arffile": arffile,
-            "bgdfile": bgdfile,
-            "HEW": HEW,
-            "fHEW": fHEW,
-            "bgdArea": bgdArea,
-            "prob": prob,
-            "Emin": Emin,
-            "Emax": Emax,
-            "NHGal": NHGal,
-            "NH": NH,
-            "Gamma": Gamma,
-            "z": z,
-            "tmin": tmin,
-            "tmax": tmax,
-            "nt": nt,
-            "SXlim": SXlim,
-            "outfile": outfile,
-            "pngfile": 'pngfile.png'
-        }
+        return defaults
     else:
         # Parse command line arguments for script execution
         desc=f'{progname}: Calculates the flux sensitivity in a given band as a function of exposure time'
         parser = argparse.ArgumentParser(description=desc)
-        parser.add_argument("--rmffile", type=str, default=rmffile, help="Filename with full path of the response file for the source spectrum")
-        parser.add_argument("--arffile", type=str, default=arffile, help="Filename with full path of the auxiliary matrix file for the source spectrum")
-        parser.add_argument("--bgdfile", type=str, default=bgdfile, help="Filename with full path of background spectrum")
-        parser.add_argument("--HEW", type=float, default=HEW, help="HEW of the PSF in arcsec")
-        parser.add_argument("--fHEW", type=float, default=fHEW, help="Extraction radius for the source in units of fraction of the HEW")
-        parser.add_argument("--bgdArea", type=float, default=bgdArea, help="Background extraction area (arcsec2)")
-        parser.add_argument("--prob", type=float, default=prob, help="Detection probability for limits (default=1-1e6, [0,1])")
-        parser.add_argument("--Emin", type=float, default=Emin, help="Lower bound of the energy interval (keV)")
-        parser.add_argument("--Emax", type=float, default=Emax, help="Upper bound of the energy interval (keV)")
-        parser.add_argument("--NHGal", type=float, default=NHGal, help="Foreground Galactic column density (1e22 cm-2)")
-        parser.add_argument("--NH", type=float, default=NH, help="Column density (1e22cm-2)")
-        parser.add_argument("--Gamma", type=float, default=Gamma, help="Power law photon index")
-        parser.add_argument("--z", type=float, default=z, help="Redshift")
-        parser.add_argument("--tmin", type=float, default=tmin, help="Minimum value of the exposure time (s)")
-        parser.add_argument("--tmax", type=float, default=tmax, help="Maximum value of the exposure time (s)")
-        parser.add_argument("--nt", type=int, default=nt, help="Number of exposure time values to explore")
-        parser.add_argument("--SXlim", type=float, default=SXlim, help="Confusion flux limit (cgs)")
-        parser.add_argument("--outfile", type=str, default=outfile, help="Filename with the output exposure time and flux limits")
-        parser.add_argument("--pngfile", type=str, default=pngfile, help="Filename with a plot with the above values")  
+        parser.add_argument("--rmffile", type=str, default="", help="Filename with full path of the response file for the source spectrum")
+        parser.add_argument("--arffile", type=str, default="", help="Filename with full path of the auxiliary matrix file for the source spectrum")
+        parser.add_argument("--bgdfile", type=str, default="", help="Filename with full path of background spectrum")
+        parser.add_argument("--HEW", type=float, default=defaults["HEW"], help="HEW of the PSF in arcsec")
+        parser.add_argument("--fHEW", type=float, default=defaults["fHEW"], help="Extraction radius for the source in units of fraction of the HEW")
+        parser.add_argument("--bgdArea", type=float, default=defaults["bgdArea"], help="Background extraction area (arcsec2)")
+        parser.add_argument("--prob", type=float, default=defaults["prob"], help="Detection probability for limits (default=1-1e6, [0,1])")
+        parser.add_argument("--Emin", type=float, default=defaults["Emin"], help="Lower bound of the energy interval (keV)")
+        parser.add_argument("--Emax", type=float, default=defaults["Emax"], help="Upper bound of the energy interval (keV)")
+        parser.add_argument("--NHGal", type=float, default=defaults["NHGal"], help="Foreground Galactic column density (1e22 cm-2)")
+        parser.add_argument("--NH", type=float, default=defaults["NH"], help="Column density (1e22cm-2)")
+        parser.add_argument("--Gamma", type=float, default=defaults["Gamma"], help="Power law photon index")
+        parser.add_argument("--z", type=float, default=defaults["z"], help="Redshift")
+        parser.add_argument("--tmin", type=float, default=defaults["tmin"], help="Minimum value of the exposure time (s)")
+        parser.add_argument("--tmax", type=float, default=defaults["tmax"], help="Maximum value of the exposure time (s)")
+        parser.add_argument("--nt", type=int, default=defaults["nt"], help="Number of exposure time values to explore")
+        parser.add_argument("--SXlim", type=float, default=defaults["SXlim"], help="Confusion flux limit (cgs)")
+        parser.add_argument("--outfile", type=str, default=defaults["outfile"], help="Filename with the output exposure time and flux limits")
+        parser.add_argument("--pngfile", type=str, default=defaults["pngfile"], help="Filename with a plot with the above values")  
         
         args = parser.parse_args()
         return vars(args)
+
+# %%
+params = get_parameters(DEFAULT_PARAMETERS)
+rmffile = params["rmffile"]
+arffile = params["arffile"]
+bgdfile = params["bgdfile"]
+HEW = params["HEW"]
+fHEW = params["fHEW"]
+bgdArea = params["bgdArea"]
+prob = params["prob"]
+Emin = params["Emin"]
+Emax = params["Emax"]
+NHGal = params["NHGal"]
+NH = params["NH"]
+Gamma = params["Gamma"]
+z = params["z"]
+tmin = params["tmin"]
+tmax = params["tmax"]
+nt = params["nt"]
+SXlim = params["SXlim"]
+outfile = params["outfile"]
+pngfile = params["pngfile"]
+print(f"Parameters used for the simulation: {params}")
+
+
+# %% [markdown]
+# ### Check that required files DO exist
+
+# %%
+if not path.exists(rmffile):
+    raise FileNotFoundError(f"Output file {rmffile} does not exist. Please provide a valid response file.")
+if not path.exists(bgdfile):
+    raise FileNotFoundError(f"Output file {bgdfile} does not exist. Please provide a valid background file.")
+if arffile and not path.exists(arffile):
+    raise FileNotFoundError(f"Output file {arffile} does not exist. Please provide a valid auxiliary response file.")
+
 
 # %% [markdown]
 # ## Derived parameters
@@ -297,16 +311,16 @@ AllModels.clear()
 # Using model <code> pha * zpha * zpow </code> calculate cont rate and flux in the selected energy band
 
 # %%
-model='pha*zpha*zpow'
+model = 'pha*zpha*zpow'
 
-intervalsCR=[[Emin,Emax]]
-pars=[NHGal,NH,z,Gamma,z,norm]
-CR1=getModelCR(AllModels,AllData,model,pars,rmffile,arffile,intervalsCR)[0]
+intervalsCR = [[Emin,Emax]]
+pars = [NHGal,NH,z,Gamma,z,norm]
+CR1 = getModelCR(AllModels,AllData,model,pars,rmffile,arffile,intervalsCR)[0]
 print(f'\n\n Countrate for unit normalization (ct/s) CR1={CR1}')
 
-intervalsFlux=[[Emin,Emax]]
-pars=[0.0,NH,z,Gamma,z,norm]
-SX1=getModelFlux(AllModels,model,pars,intervalsFlux)[0]
+intervalsFlux = [[Emin,Emax]]
+pars = [0.0,NH,z,Gamma,z,norm]
+SX1 = getModelFlux(AllModels,model,pars,intervalsFlux)[0]
 print(f'\n\nFlux for unit normalization (cgs) SX={SX1} ')
 
 # %% [markdown]
