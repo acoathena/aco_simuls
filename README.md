@@ -7,13 +7,9 @@ This repository contains the following simulation tools developed by the [Athena
 
 # NewAthena Xray flux vs exposure Time
 
-Determine the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time.
+Determine the flux sensitivity in a given energy band for a given instrument of the NewAthena X-ray mission as a function of exposure time.
 
-The simulations can be done either running the notebook from the command line or executing (cell-by-cell) the jupyter-notebook ``Athena_Xray_flux_vs_expTime.ipynb``. For this case, the first cell also contains the option to make plots interactive by using ``matplotlib widgets`` in a jupyter-lab (provided [``ipympl``](https://github.com/matplotlib/ipympl) is installed. Simply uncomment the lines:
-
-```import ipywidgets as widgets```   
-```%matplotlib widget```
-
+The simulations are done running the jupyter-notebook ``Athena_Xray_flux_vs_expTime.ipynb``.
 
 Before running the program, users need to install locally [HEASOFT](https://heasarc.gsfc.nasa.gov/docs/software/heasoft/) with [PyXspec](https://heasarc.gsfc.nasa.gov/docs/xanadu/xspec/python/html/).
 
@@ -21,8 +17,12 @@ Before running the program, users need to install locally [HEASOFT](https://heas
 
 ## Running the notebook 
 
-You can run the notebook interactively (cell by cell using Jupyter Lab/Notebook, Visual Studio Code or your preferred IDE).   
-To run the notebook end-to-end from the command line, use the script <code>execute_notebook.py</code>:
+1. Interactively: You can run the notebook cell by cell, using Jupyter Lab/Notebook, Visual Studio Code or your preferred IDE.  For this case, the first cell also contains the option to make plots interactive by using ``matplotlib widgets`` in a jupyter-lab (provided [``ipympl``](https://github.com/matplotlib/ipympl) is installed). Simply uncomment the lines:
+
+```import ipywidgets as widgets```   
+```%matplotlib widget```
+
+2. Command line: To run the notebook end-to-end from the command line, use the script <code>execute_notebook.py</code>:
 
    <code> > python execute_notebook.py --rmffile my.rmf --arffile my.arf --bgdfile my.bgdfile ...... </code>  
    
@@ -62,78 +62,7 @@ The meaning of the input parameters is as follows:
     Time_s, Flux_cgs, Flux_confusion_cgs, FluxOptimumExtraction_cgs & RadiusOptimumExtraction_arcsec  
     6. Plotting limiting sensitivity vs exposure time  
 
-**Ready-to-use Examples:**  
-
-    #  Athena Flux and Counts Determination
-
-This program determines the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time
-
-Authors: F.J. Carrera, S. Martínez-Núñez, M.T. Ceballos
-
-**Athena Community Office**  
-**Instituto de Física de Cantabria (CSIC-UC)**  
-Funded by Agencia Estatal de Investigación, Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765  
-Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.    
-Funded by the Spanish Ministry MCIU under project PID2021-122955OB-C41 funded by MICIU/AEI/
-10.13039/501100011033 and by ERDF/EU.     
-Funded by the Spanish Ministry MCIU under project PID2024-155779OB-C31 funded by MICIU/AEI/
-10.13039/501100011033 and by ERDF/EU.
-
-
-![logos](logos/logo_grant.jpg)
-
->__LICENSE__: This is free software: you can redistribute it and/or modify it under the terms of the  
->GNU General Public License as published by the Free Software Foundation, either version  
->3 of the License, or any later version. This software is distributed in the hope that it  
->will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of  
->MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
->See the GNU General Public License for more details.  
->For a copy of the GNU General Public License see <http://www.gnu.org/licenses/>.
-
-## Input Parameters:
-
-* __rmffile__ (str): Filename with full path of the response file for the source spectrum  
-* __arffile__ (str): Filename with full path of the auxiliary matrix file for the source spectrum  
-* __bgdfile__ (str): Filename with full path of sum background spectrum that it includes all components  
-* __HEW__ (float): HEW of the PSF in arcsec (default 9.0)
-* __fHEW__ (float): Extraction radius for the source in units of fraction of the HEW (default=1.0)   
-* __bgdArea__ (float): Backtround extraction area (arcsec2, default 254.5)  
-* __prob__ (float): Detection significance for limits (default=1-10⁻⁶)  
-* __Emin__ (float): Lower bound of the energy interval (keV, default 2.0)  
-* __Emax__ (float): Upper bound of the energy interval (keV, default 10.0)  
-* __NHGal__ (float): Foreground Galactic column density (1e22 cm-2, default 0.018)  
-* __NH__ (float): Column density (10²²cm⁻², default 0.020)  
-* __Gamma__ (float): Power law photon index (default 2.0)  
-* __z__ (float): Redshift (default 0)  
-* __tmin__ (float): Minimum value of the exposure time (s; default=100)  
-* __tmax__ (float): Maximum value of the exposure time (s; default=10⁸)  
-* __nt__ (int): Number of exposure time values to explore (default=100)  
-* __SXlim__ (float): Confusion flux hard limit (cgs, default 5.1e-17 appropriate for 0.5-2 keV -James Aird, private communication-). Different limits should be adopted depending on the desired sensitivity. 
-* __outfile__ (str): Filename with the output exposure time and flux limits (default 'outfile.txt')  
-* __pngfile__ (str): Filename with a plot with the above values (default 'pngfile.png')  
-
-## Processing steps:
-    
-   1. Importing libraries  
-   2. Defining input parameters, derived parameters and Xspec parameters  
-   3. Gettting background count rate in the reference band normalized to the source area  
-   4. Determining counts, flux (cgs units - erg cm-2 s-1 -), confusion flux (cgs), optimum extraction flux (cgs) & optimum extraction radius (arcsec) in the reference band over a loop of exposure times  
-   5. Output file with results: the information provided by the outpufile comprises: Time_s, Flux_cgs, Flux_confusion_cgs, FluxOptimumExtraction_cgs & RadiusOptimumExtraction_arcsec  
-   6. Plotting limiting sensitivity vs exposure time: to make interactive plots (using matplotlib ``widgets`` provided ``ipympl`` is installed for jupyter-lab / VS Code) simply uncomment the lines:
-   
-      <code> import ipywidgets as widgets </code>  
-      <code> %matplotlib widget  </code>
-
-      
-## Running the notebook 
-
-You can run the notebook interactively (cell by cell using Jupyter Lab/Notebook, Visual Studio Code or your preferred IDE).   
-To run the notebook end-to-end from the command line, use the script <code>execute_notebook.py</code>:
-
-   <code> > python execute_notebook.py --rmffile my.rmf --arffile my.arf --bgdfile my.bgdfile ...... </code>  
-   
-
-### Examples:
+**Ready-to-use Examples:**     
 
    1. Athena/WFI point source, FoV-averaged (0.5-2 keV): 
     
@@ -174,6 +103,12 @@ The output (PNG) figures of these examples can be found in the ``test_examples``
 
 ### Instituto de Física de Cantabria (CSIC-UC)
 
-Grant PID2021-122955OB-C41 funded by MCIN/AEI/10.13039/501100011033 and by “ERDF A way of making Europe”
+Funded by Agencia Estatal de Investigación, Unidad de Excelencia María de Maeztu, ref. MDM-2017-0765  
+Funded by the Spanish Ministry MCIU under project RTI2018-096686-B-C21 (MCIU/AEI/FEDER, UE), co-funded by FEDER funds.    
+Funded by the Spanish Ministry MCIU under project PID2021-122955OB-C41 funded by MICIU/AEI/
+10.13039/501100011033 and by ERDF/EU.     
+Funded by the Spanish Ministry MCIU under project PID2024-155779OB-C31 funded by MICIU/AEI/
+10.13039/501100011033 and by ERDF/EU.
 
-![logos](./logos/logos_small.png)
+
+![logos](logos/logo_grant.jpg)
