@@ -1,7 +1,7 @@
 # %% [markdown]
-# #  Athena Flux and Counts Determination
+# #  NewAthena Flux and Counts Determination
 # 
-# This program determines the flux sensitivity in a given energy band for a given instrument of the Athena X-ray mission as a function of exposure time
+# This program determines the flux sensitivity in a given energy band for a given instrument of the NewAthena X-ray mission as a function of exposure time
 # 
 # Authors: F.J. Carrera, S. Martínez-Núñez, M.T. Ceballos
 # 
@@ -27,33 +27,33 @@
 # 
 # ## Input Parameters:
 # 
-# * __rmffile__ (str): Filename with full path of the response file for the source spectrum  
-# * __arffile__ (str): Filename with full path of the auxiliary matrix file for the source spectrum  
-# * __bgdfile__ (str): Filename with full path of sum background spectrum that it includes all components  
+# * __rmffile__ (str): Filename with full path of the response file for the source spectrum
+# * __arffile__ (str): Filename with full path of the auxiliary matrix file for the source spectrum
+# * __bgdfile__ (str): Filename with full path of sum background spectrum that it includes all components
 # * __HEW__ (float): HEW of the PSF in arcsec (default 9.0)
-# * __fHEW__ (float): Extraction radius for the source in units of fraction of the HEW (default=1.0)   
-# * __bgdArea__ (float): Backtround extraction area (arcsec2, default 254.5)  
-# * __prob__ (float): Detection significance for limits (default=1-10⁻⁶)  
-# * __Emin__ (float): Lower bound of the energy interval (keV, default 2.0)  
-# * __Emax__ (float): Upper bound of the energy interval (keV, default 10.0)  
-# * __NHGal__ (float): Foreground Galactic column density (1e22 cm-2, default 0.018)  
-# * __NH__ (float): Column density (10²²cm⁻², default 0.020)  
-# * __Gamma__ (float): Power law photon index (default 2.0)  
-# * __z__ (float): Redshift (default 0)  
-# * __tmin__ (float): Minimum value of the exposure time (s; default=100)  
-# * __tmax__ (float): Maximum value of the exposure time (s; default=10⁸)  
-# * __nt__ (int): Number of exposure time values to explore (default=100)  
+# * __fHEW__ (float): Extraction radius for the source in units of fraction of the HEW (default=1.0)
+# * __bgdArea__ (float): Backtround extraction area (arcsec2, default 254.5)
+# * __prob__ (float): Detection significance for limits (default=1-10⁻⁶)
+# * __Emin__ (float): Lower bound of the energy interval (keV, default 2.0)
+# * __Emax__ (float): Upper bound of the energy interval (keV, default 10.0)
+# * __NHGal__ (float): Foreground Galactic column density (1e22 cm-2, default 0.018)
+# * __NH__ (float): Column density (10²²cm⁻², default 0.020)
+# * __Gamma__ (float): Power law photon index (default 2.0) 
+# * __z__ (float): Redshift (default 0)
+# * __tmin__ (float): Minimum value of the exposure time (s; default=100)
+# * __tmax__ (float): Maximum value of the exposure time (s; default=10⁸)
+# * __nt__ (int): Number of exposure time values to explore (default=100)
 # * __SXlim__ (float): Confusion flux hard limit (cgs, default 5.1e-17 appropriate for 0.5-2 keV -James Aird, private communication-). Different limits should be adopted depending on the desired sensitivity. 
-# * __outfile__ (str): Filename with the output exposure time and flux limits (default 'outfile.txt')  
-# * __pngfile__ (str): Filename with a plot with the above values (default 'pngfile.png')  
+# * __outfile__ (str): Filename with the output exposure time and flux limits (default 'outfile.txt')
+# * __pngfile__ (str): Filename with a plot with the above values (default 'pngfile.png')
 # 
 # ## Processing steps:
 #     
-#    1. Importing libraries  
-#    2. Defining input parameters, derived parameters and Xspec parameters  
-#    3. Gettting background count rate in the reference band normalized to the source area  
-#    4. Determining counts, flux (cgs units - erg cm-2 s-1 -), confusion flux (cgs), optimum extraction flux (cgs) & optimum extraction radius (arcsec) in the reference band over a loop of exposure times  
-#    5. Output file with results: the information provided by the outpufile comprises: Time_s, Flux_cgs, Flux_confusion_cgs, FluxOptimumExtraction_cgs & RadiusOptimumExtraction_arcsec  
+#    1. Importing libraries
+#    2. Defining input parameters, derived parameters and Xspec parameters
+#    3. Getting background count rate in the reference band normalised to the source area
+#    4. Determining counts, flux (cgs units - erg cm-2 s-1 -), confusion flux (cgs), optimum extraction flux (cgs) & optimum extraction radius (arcsec) in the reference band over a loop of exposure times
+#    5. Output file with results: the information provided by the outpufile comprises: Time_s, Flux_cgs, Flux_confusion_cgs, FluxOptimumExtraction_cgs & RadiusOptimumExtraction_arcsec
 #    6. Plotting limiting sensitivity vs exposure time: to make interactive plots (using matplotlib ``widgets`` provided ``ipympl`` is installed for jupyter-lab / VS Code) simply uncomment the lines:
 #    
 #       <code> import ipywidgets as widgets </code>  
@@ -62,23 +62,23 @@
 #       
 # ## Running the notebook 
 # 
-# You can run the notebook interactively (cell by cell using Jupyter Lab/Notebook, Visual Studio Code or your preferred IDE).   
+# You can run the notebook interactively (cell by cell using Jupyter Lab/Notebook, Visual Studio Code or your preferred IDE).  
 # To run the notebook end-to-end from the command line, use the script <code>execute_notebook.py</code>:
 # 
-#    <code> > python execute_notebook.py --rmffile my.rmf --arffile my.arf --bgdfile my.bgdfile ...... </code>  
+#    <code> > python execute_notebook.py --rmffile my.rmf --arffile my.arf --bgdfile my.bgdfile ...... </code>
 #    
 # 
 # ### Examples:
 # 
 # Please note that these examples may not reflect actual simulation conditions.
 # 
-#    1. Athena/WFI point source, FoV-averaged (0.5-2 keV): 
+#    1. Athena/WFI point source, FoV-averaged (0.5-2 keV):
 #     
 #     > python3 execute_notebook.py --rmffile NewAthena_WFI_13rows_LDA_wo_filter_FoVAvg_20260213.rsp  \
-#     --arffile " " --bgdfile NewAthena_WFI_13rows_LDA_20260410_bkgd_photon_wo_filter_FoVAvg.pha --HEW 9.0  \  
+#     --arffile " " --bgdfile NewAthena_WFI_13rows_LDA_20260410_bkgd_photon_wo_filter_FoVAvg.pha --HEW 9.0  \
 #     --fHEW 0.67 --bgdArea 254.5 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020 \
-#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 5.1e-17 \  
-#     --outfile FluxvsTexp_bgd_WFI_05_2keV.topcat --pngfile FluxvsTexp_bgd_WFI_05_2keV.png                
+#     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 5.1e-17 \
+#     --outfile FluxvsTexp_bgd_WFI_05_2keV.topcat --pngfile FluxvsTexp_bgd_WFI_05_2keV.png
 #      
 #    2. Athena/X-IFU point source (0.5-2 keV):
 #     
@@ -111,17 +111,16 @@
 #import ipywidgets as widgets
 #%matplotlib widget  
 
-import sys
 import argparse
 import datetime
 from os import path
 import numpy as np
-from scipy.optimize import root,minimize_scalar
+from scipy.optimize import minimize_scalar
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from enclosed_energy_fraction import eef
-from getModel import getModelCR, getModelFlux, getModelLum
-from stats import gammainc_here
+from getModel import getModelCR, getModelFlux
+#from stats import gammainc_here
 from SXdet import SXdet_f
 from xspec import Xset, Plot, AllData, AllModels, Spectrum
 
@@ -186,6 +185,7 @@ def get_parameters(defaults):
     If running in a Jupyter Notebook, use default parameters.
     If running as a script, parse command line arguments.
     """
+    
     if is_notebook():
         # Default parameters for interactive use
         print("Running in notebook mode for simulation")
