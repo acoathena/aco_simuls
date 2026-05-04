@@ -62,7 +62,9 @@ The meaning of the input parameters is as follows:
     Time_s, Flux_cgs, Flux_confusion_cgs, FluxOptimumExtraction_cgs & RadiusOptimumExtraction_arcsec  
     6. Plotting limiting sensitivity vs exposure time  
 
-**Ready-to-use Examples:**     
+**Running Examples:**
+
+Please note that these examples may not reflect actual simulation conditions.
 
    1. Athena/WFI point source, FoV-averaged (0.5-2 keV): 
     
@@ -74,9 +76,9 @@ The meaning of the input parameters is as follows:
      
    2. Athena/X-IFU point source (0.5-2 keV):
     
-    > python3 execute_notebook.py --rmffile new_athena_xifu_rb_4eV_gaussian.rmf  \
-    --arffile new_athena_xifu_rb_optical_filter.arf \
-    --bgdfile new_athena_xifu_rb_nxb_1amin2.pha --HEW 9.0 \
+    > python3 execute_notebook.py --rmffile new_athena_xifu_mar_4eV_gaussian.rmf  \
+    --arffile new_athena_xifu_mar_optical_filter.arf \
+    --bgdfile new_athena_xifu_mar_nxb_1amin2.pha --HEW 9.0 \
     --fHEW 0.67 --bgdArea 78.54 --prob 0.999999 --Emin 0.5 --Emax 2.0 --NHGal 0.018 --NH 0.020  \
     --Gamma 2.0 --z 6.0 --tmin 1e2 --tmax 1e8 --nt 100 --SXlim 5.1e-17 \
     --outfile FluxvsTexp_bgd_XIFU_05_2keV.topcat --pngfile FluxvsTexp_bgd_XIFU_05_2keV.png \
