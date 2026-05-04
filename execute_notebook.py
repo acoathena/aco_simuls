@@ -149,18 +149,18 @@ DEFAULT_PARAMETERS = dict(
 rmffile = "NewAthena_WFI_13rows_LDA_wo_filter_FoVAvg_20260213.rsp",
 arffile = "",
 bgdfile = "NewAthena_WFI_13rows_LDA_20260410_bkgd_photon_wo_filter_FoVAvg.pha",
-HEW = 9.0, 
-fHEW = 1.0, 
-bgdArea = 254.5, 
+HEW = 9.0,
+fHEW = 1.0,
+bgdArea = 254.5,
 prob = 0.999999,
-Emin = 2.0, 
-Emax = 10.0, 
-NHGal = 0.018, 
-NH = 0.020, 
-Gamma = 2.0, 
-z = 0., 
-tmin = 1.e2, 
-tmax = 1.e8, 
+Emin = 2.0,
+Emax = 10.0,
+NHGal = 0.018,
+NH = 0.020,
+Gamma = 2.0,
+z = 0.,
+tmin = 1.e2,
+tmax = 1.e8,
 nt = 100,
 SXlim = 5.1e-17,
 outfile = 'outfile.txt',
@@ -185,7 +185,6 @@ def get_parameters(defaults):
     If running in a Jupyter Notebook, use default parameters.
     If running as a script, parse command line arguments.
     """
-    
     if is_notebook():
         # Default parameters for interactive use
         print("Running in notebook mode for simulation")
@@ -212,7 +211,7 @@ def get_parameters(defaults):
         parser.add_argument("--nt", type=int, default=defaults["nt"], help="Number of exposure time values to explore")
         parser.add_argument("--SXlim", type=float, default=defaults["SXlim"], help="Confusion flux limit (cgs)")
         parser.add_argument("--outfile", type=str, default=defaults["outfile"], help="Filename with the output exposure time and flux limits")
-        parser.add_argument("--pngfile", type=str, default=defaults["pngfile"], help="Filename with a plot with the above values")  
+        parser.add_argument("--pngfile", type=str, default=defaults["pngfile"], help="Filename with a plot with the above values")
         
         args = parser.parse_args()
         return vars(args)
@@ -267,7 +266,7 @@ print(f'\n\n Source extraction radius={radius} arcsec  EEF={EEF}')
 # %% [markdown]
 # ## Xspec parameters
 # 
-# Definition of Xspec parameters: console chatter level; log chatter level; abundance table; set cosmological values; set the photoelectric absorption cross-section to bcmc; add a key - value pair of strings to XSPEC's internal database; xAxis units for plotting; and plotting device 
+# Definition of Xspec parameters: console chatter level; log chatter level; abundance table; set cosmological values; set the photoelectric absorption cross-section to bcmc; add a key - value pair of strings to XSPEC's internal database; xAxis units for plotting; and plotting device
 
 # %%
 # initialize XSPEC parameters
@@ -283,7 +282,7 @@ Plot.device='/NULL'
 Plot.xAxis='keV'
 
 # %% [markdown]
-# # Background count rate 
+# # Background count rate
 # 
 # Gets background count rate in the reference band normalized to the source area
 
@@ -328,11 +327,11 @@ print(f'\n\nFlux for unit normalization (cgs) SX={SX1} ')
 # %% [markdown]
 # # Flux calculation 
 # 
-# For different exposure times, calculate:  
-# __SXdet__: detection flux  
-# __SXdetconf__: detection flux taking into account the input confusion limit  
-# __SXopt__: detection flux using the extraction region that maximises the signal-to-noise ratio  
-# __ropt__: radius of a circular extraction region that would maximise the signal-to-noise-ratio  
+# For different exposure times, calculate:
+# __SXdet__: detection flux   
+# __SXdetconf__: detection flux taking into account the input confusion limit   
+# __SXopt__: detection flux using the extraction region that maximises the signal-to-noise ratio   
+# __ropt__: radius of a circular extraction region that would maximise the signal-to-noise-ratio
 
 # %%
 ts=np.logspace(np.log10(tmin),np.log10(tmax),num=nt)
@@ -374,7 +373,7 @@ for t in ts:
 # __Flux_cgs__: detection flux in cgs units (erc cm-2 s-1)  
 # __Flux_confusion_cgs__: detection flux taking into account the input confusion limit in cgs units (erc cm-2 s-1)  
 # __FluxOptimumExtraction_cgs__: detection flux using the extraction region that maximises the signal-to-noise ratio in cgs units (erc cm-2 s-1)  
-# __RadiusOptimumExtraction_arcsec__: the radius of a circular extraction region that would maximise the signal-to-noise-ratio, in arcsec   
+# __RadiusOptimumExtraction_arcsec__: the radius of a circular extraction region that would maximise the signal-to-noise-ratio, in arcsec
 
 # %%
 SXdets=np.array(SXdets)
@@ -383,7 +382,7 @@ SXopts=np.array(SXopts)
 ropts=np.array(ropts)
 np.savetxt(outfile,np.c_[ts,SXdets,SXdetconfs,SXopts,ropts],comments='#',
            header=' Time_s  Flux_cgs  Flux_confusion_cgs FluxOptimumExtraction_cgs RadiusOptimumExtraction_arcsec',
-           fmt=' %9.1f  %9.3e  %9.3e  %9.3e %6.3f') 
+           fmt=' %9.1f  %9.3e  %9.3e  %9.3e %6.3f')
 print(f'\n\n {nt} fluxes written out to file {outfile}')
 
 # %% [markdown]
